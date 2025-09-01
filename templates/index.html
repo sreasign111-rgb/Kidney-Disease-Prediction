@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidney Disease Predictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-radial-gradient"></div>
+    <div class="main-container">
+        <header>
+            <h1>Kidney Disease Predictor</h1>
+            <p>Enter the patient's data below to check for potential kidney disease.</p>
+        </header>
+
+        <main>
+            <form id="prediction-form" class="prediction-form glass-card">
+                <div class="input-grid">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bp">Blood Pressure (mmHg)</label>
+                        <input type="number" id="bp" name="bp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sg">Specific Gravity</label>
+                        <input type="number" step="0.001" id="sg" name="sg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="al">Albumin (0-5)</label>
+                        <input type="number" id="al" name="al" min="0" max="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="su">Sugar (0-5)</label>
+                        <input type="number" id="su" name="su" min="0" max="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bgr">Blood Glucose Random</label>
+                        <input type="number" id="bgr" name="bgr" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hemo">Hemoglobin (g/dL)</label>
+                        <input type="number" step="0.1" id="hemo" name="hemo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sc">Serum Creatinine</label>
+                        <input type="number" step="0.1" id="sc" name="sc" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Predict</button>
+            </form>
+
+            <div id="result-container" class="result-container glass-card hidden">
+                <div id="result-icon-container">
+                </div>
+                <div class="result-text-group">
+                    <div id="prediction-text" class="prediction-text"></div>
+                    <div id="probability-text" class="probability-text"></div>
+                </div>
+            </div>
+
+            <div id="error-message" class="error-message glass-card hidden"></div>
+        </main>
+    </div>
+    
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
