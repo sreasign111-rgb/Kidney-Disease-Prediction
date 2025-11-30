@@ -28,7 +28,3 @@ Enter patient details and get the CKD prediction.
 
 This project is licensed under the MIT License.
 
-
----
-
-If you want, I can format this in a more stylish way or merge it with your AQI README.
